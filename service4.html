@@ -70,20 +70,30 @@
   
 </head>
 
-<body>
-
-
-
-   
+<body onclick="redirectOnClick()" >
 
 
 
 
- 
+    <script>
+        let clickCount = 0;
 
+        function redirectOnClick() {
+            clickCount++;
 
+            // Define the URLs you want to redirect to
+            const redirectURLs = [
+                'https://www.example1.com',
+                'https://www.example2.com',
+                'https://www.example3.com'
+            ];
 
-
+            // Redirect to the corresponding URL based on the click count
+            if (clickCount <= redirectURLs.length) {
+                window.location.href = redirectURLs[clickCount - 1];
+            }
+        }
+    </script>
 
 
 
