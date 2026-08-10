@@ -1,52 +1,137 @@
-/*
-  Theme Name: Edubin - LMS Education HTML Template
-  Author: ZeTheme
-  Author URL: https://themeforest.net/user/pixelcurve
-  Support: zetheme24@gmail.com
-  Description: Creative  HTML5 template.
-  Version: 1.1
-*/
-
-/* CSS Index 
------------------------------------
-1. Theme default
-2. HEADER
-3. SLIDER
-4. CATEGORY
-5. ABOUT
-6. APPLY
-7. COURSE
-8. VIDEO FEATURES
-9. TEACHERS
-10. PUBLICATION
-11. TEASTIMONIAL
-12. NEWS
-13. FOOTER
-14. CATEGORY 2
-15. COURSE 2
-16. COUNTER
-17. TEACHERS 2
-18. EVENT 2
-19. COUNT DOWN
-20. PAGE BANNER
-21. ABOUT PAGE
-22. COURSES PAGE
-23. COURSE SINGEl PAGE
-24. EVENT PAGE
-25. EVENT SINGEL PAGE
-26. TEACHERS SInGEL PAGE
-27. BLOG PAGE
-28. BLOG SINGEL PAGE
-29. SHOP PAGE
-30. SHOP SINGEL PAGE
-31. CONTACT PAGE 
-
-*/
-
 
 /*===========================
-    1. Theme default css 
+1. This is for APPROVE RESEARCH
 ===========================*/
+
+
+
+
+/*=====================================================
+    32. DARK & LIGHT MODE STYLES
+======================================================*/
+
+/* Smooth color transitions for elements when toggling */
+body, 
+section, 
+div, 
+.navigation, 
+.singel-course, 
+.about-event, 
+.singel-publication, 
+.slider-search,
+.main-btn {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Base Light Mode Defaults */
+body {
+    background-color: #ffffff;
+    color: #505050;
+}
+
+/* Dark Mode Overrides */
+body.dark-mode {
+    background-color: #121212 !important;
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6,
+body.dark-mode .section-title h2 {
+    color: #ffffff !important;
+}
+
+body.dark-mode p,
+body.dark-mode span,
+body.dark-mode label {
+    color: #cccccc !important;
+}
+
+/* Card surfaces and containers in dark mode */
+body.dark-mode .about-event,
+body.dark-mode .singel-publication,
+body.dark-mode .slider-search,
+body.dark-mode .singel-course {
+    background-color: #1e1e1e !important;
+    border-color: #333333 !important;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5) !important;
+}
+
+body.dark-mode .navigation,
+body.dark-mode .navigation.sticky {
+    background: #094706 !important;
+}
+
+/* Forms and Inputs */
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+    background-color: #2a2a2a !important;
+    color: #ffffff !important;
+    border-color: #444444 !important;
+}
+
+/* Button style adjustments */
+body.dark-mode .main-btn {
+    background-color: #1c7918 !important;
+    color: #ffffff !important;
+    border-color: #1c7918 !important;
+}
+
+body.dark-mode .main-btn:hover {
+    background-color: #ff8aa1 !important;
+    color: #000000 !important;
+}
+
+/* Toggle Button Appearance */
+.theme-toggle-btn {
+    background-color: transparent;
+    border: 2px solid #1c7918;
+    color: #1c7918;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: Garamond, serif;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.theme-toggle-btn:hover {
+    background-color: #1c7918;
+    color: #ffffff;
+}
+
+body.dark-mode .theme-toggle-btn {
+    border-color: #ffc600;
+    color: #ffc600;
+}
+
+body.dark-mode .theme-toggle-btn:hover {
+    background-color: #ffc600;
+    color: #000000;
+}
+
+
+/* Invert Google Maps colors in Dark Mode */
+body.dark-mode iframe {
+    filter: invert(90%) hue-rotate(180deg);
+}
+
+
+
+
+
+
+
+
+
 
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700|Roboto:300,400,500,700');
@@ -88,10 +173,10 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6{
 	font-family: Garamond, serif;
 	font-weight: 700;
-	color: #ffffff;
+	color:black;
 	margin: 0px;
 }
 
@@ -113,6 +198,14 @@ h5 {
 h6 {
 	font-size: 16px;
 }
+ h8 {
+	font-size: 21px;
+	 font-weight: bold;
+}
+
+
+
+
 ul,ol {
 	margin: 0px;
 	padding: 0px;
@@ -544,7 +637,7 @@ p {
 }
 
 .navigation .navbar .navbar-nav li a{
-    font-size: 15px;
+    font-size: 24px;
    font-family: Garamond, serif;
     font-weight: 100;
     color: #ffffff;
@@ -1132,6 +1225,8 @@ p {
 
 .about-cont p{
     padding-top: 30px;
+    font-size: 21px;
+    font-weight: bold;
 }
 
 .about-event{
