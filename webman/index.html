@@ -435,33 +435,116 @@ tailwind.config = {
 
 
       <!-- ═══ WHY CHOOSE US ═══ -->
- <article>
- <div class="max-w-3xl mx-auto px-6 pb-4 prose-cs">
+ <!-- ═══ WHY CHOOSE US ═══ -->
+<section class="py-20 md:py-28 bg-zinc-50 dark:bg-zinc-900/50">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
 
-        <h2>Why Choose Us</h2>
-         
-        
-        <blockquote>
-          <p>"We don't just maintain websites— We help them grow. Whether it's improving your site's speed, fixing broken links, or suggesting ways to attract more visitors, We are always thinking about how to make your site work better for you."</p>
-        </blockquote>
+    <!-- Heading -->
+    <div class="text-center max-w-2xl mx-auto mb-14 md:mb-16">
+      <p class="text-sm font-semibold text-accent tracking-widest uppercase mb-3">
+        Our Difference
+      </p>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl md:text-5xl text-zinc-900 dark:text-white mb-5">
+        Why Choose Us
+      </h2>
+      <p class="text-zinc-500 dark:text-zinc-400 text-base sm:text-lg leading-relaxed">
+        We don’t just maintain websites — we help them grow.
+      </p>
+    </div>
 
-        
-        <ul>
-          <li> We Understand Your World – We work with academics, researchers, and small business owners. We know your challenges.</li>
-          <li>Real Technical Expertise – We've built and managed sites from scratch, including this one.</li>
-          <li>Affordable & Transparent – No hidden fees. Clear pricing upfront.</li>
-          <li>Peace of Mind – Daily backups, security monitoring, and regular updates keep your site safe.</li>
+    <!-- Quote -->
+    <div class="max-w-3xl mx-auto mb-14 md:mb-16">
+      <blockquote class="relative bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 sm:p-8 md:p-10 shadow-sm">
+        <svg class="absolute top-6 left-6 w-8 h-8 text-accent/20" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+        </svg>
+        <p class="relative z-10 text-zinc-600 dark:text-zinc-300 text-base sm:text-lg leading-relaxed italic pl-2">
+          "We don't just maintain websites— We help them grow. Whether it's improving your site's speed, fixing broken links, or suggesting ways to attract more visitors, We are always thinking about how to make your site work better for you."
+        </p>
+      </blockquote>
+    </div>
 
-          <li>Your Success Matters – We help your site grow, not just survive.</li>
-        </ul>
-</div>
+    <!-- Features Grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
 
+      <!-- Card 1 -->
+      <div class="group bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 md:p-7 hover:border-accent/50 hover:shadow-lg hover:shadow-accent/5 transition-all duration-300">
+        <div class="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center mb-5 group-hover:bg-accent/20 transition-colors">
+          <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+          </svg>
+        </div>
+        <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-2">
+          We Understand Your World
+        </h3>
+        <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+          We work with academics, researchers, and small business owners. We know your challenges.
+        </p>
+      </div>
 
- </article>
+      <!-- Card 2 -->
+      <div class="group bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 md:p-7 hover:border-accent/50 hover:shadow-lg hover:shadow-accent/5 transition-all duration-300">
+        <div class="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center mb-5 group-hover:bg-accent/20 transition-colors">
+          <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+          </svg>
+        </div>
+        <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-2">
+          Real Technical Expertise
+        </h3>
+        <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+          We've built and managed sites from scratch, including this one.
+        </p>
+      </div>
 
+      <!-- Card 3 -->
+      <div class="group bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 md:p-7 hover:border-accent/50 hover:shadow-lg hover:shadow-accent/5 transition-all duration-300">
+        <div class="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center mb-5 group-hover:bg-accent/20 transition-colors">
+          <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </div>
+        <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-2">
+          Affordable & Transparent
+        </h3>
+        <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+          No hidden fees. Clear pricing upfront.
+        </p>
+      </div>
 
+      <!-- Card 4 -->
+      <div class="group bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 md:p-7 hover:border-accent/50 hover:shadow-lg hover:shadow-accent/5 transition-all duration-300">
+        <div class="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center mb-5 group-hover:bg-accent/20 transition-colors">
+          <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+          </svg>
+        </div>
+        <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-2">
+          Peace of Mind
+        </h3>
+        <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+          Daily backups, security monitoring, and regular updates keep your site safe.
+        </p>
+      </div>
 
+      <!-- Card 5 -->
+      <div class="group bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 md:p-7 hover:border-accent/50 hover:shadow-lg hover:shadow-accent/5 transition-all duration-300 sm:col-span-2 lg:col-span-1">
+        <div class="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center mb-5 group-hover:bg-accent/20 transition-colors">
+          <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+          </svg>
+        </div>
+        <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mb-2">
+          Your Success Matters
+        </h3>
+        <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+          We help your site grow, not just survive.
+        </p>
+      </div>
 
+    </div>
+  </div>
+</section>
 
 
 
@@ -470,16 +553,7 @@ tailwind.config = {
 
 
 <!-- ═══ WORK ═══ -->
-<section id="work" class="py-24">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14">
-      <div>
-        <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3"></p>
-        <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white"></h2>
-      </div>
-       
-    </div>
-
+ 
  
 
 
@@ -1038,23 +1112,7 @@ tailwind.config = {
         </iframe>
       </div>
 
-      <div class="absolute bottom-4 left-4 right-4 md:right-auto md:max-w-xs bg-white dark:bg-zinc-900 rounded-xl p-4 shadow-lg border border-zinc-100 dark:border-zinc-800">
-        <div class="flex items-start gap-3">
-          <div class="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
-            <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-            </svg>
-          </div>
-          <div>
-            <h3 class="font-semibold text-zinc-900 dark:text-white text-sm mb-1">Approve Research</h3>
-            <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
-              FRANCOPAT ST, SCC, Weija Gbawe<br>
-              Accra – Ghana, Africa
-            </p>
-          </div>
-        </div>
-      </div>
+      
     </div>
   </div>
 </section>
