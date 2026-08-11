@@ -2,6 +2,12 @@
 <html lang="en" x-data="app()" :class="{'dark':dark}" class="scroll-smooth">
 <head>
 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
 
 <link rel="shortcut icon" href="image/images.jpeg" type="image/png">
 
@@ -47,81 +53,89 @@ tailwind.config = {
 
 
 
-
-
 <style>
-*,*::before,*::after{box-sizing:border-box}
-html,body{font-family:'DM Sans',sans-serif}
-h1,h2,h3,h4,h5,h6{font-family:'PT Sans',sans-serif}
-body{transition:background-color .3s,color .3s}
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { font-family: 'DM Sans', sans-serif; }
+  h1, h2, h3, h4, h5, h6 { font-family: 'PT Sans', sans-serif; }
+  body { transition: background-color .3s, color .3s; }
 
-/* noise overlay */
-body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.35;
-background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E")}
+  /* Lighter noise (reduced opacity for mobile performance) */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: .2;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+  }
 
-/* scrollbar */
-::-webkit-scrollbar{width:5px}
-::-webkit-scrollbar-track{background:transparent}
-::-webkit-scrollbar-thumb{background:#22C55E;border-radius:99px}
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #22C55E; border-radius: 99px; }
 
+  /* Reveal on scroll */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .5s ease, transform .5s ease;
+  }
+  .reveal.in { opacity: 1; transform: none; }
+  .d1 { transition-delay: .06s; }
+  .d2 { transition-delay: .12s; }
+  .d3 { transition-delay: .18s; }
+  .d4 { transition-delay: .24s; }
 
+  /* Nav underline */
+  .nl { position: relative; }
+  .nl::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background: currentColor;
+    transition: width .2s ease;
+  }
+  .nl:hover::after, .nl.on::after { width: 100%; }
+  .nl.on { font-weight: 500; }
 
+  /* Shimmer button */
+  .shimmer { position: relative; overflow: hidden; }
+  .shimmer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: rgba(255,255,255,.15);
+    transform: skewX(-20deg);
+    transition: left .35s ease;
+  }
+  .shimmer:hover::after { left: 160%; }
 
-/* reveal on scroll */
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .6s cubic-bezier(.4,0,.2,1),transform .6s cubic-bezier(.4,0,.2,1)}
-.reveal.in{opacity:1;transform:none}
-.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+  /* Photo frames */
+  .pf { overflow: hidden; background: #d4d4d8; }
+  .pf img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-/* nav underline animation */
-.nl{position:relative}
-.nl::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1.5px;background:currentColor;transition:width .22s cubic-bezier(.4,0,.2,1)}
-.nl:hover::after,.nl.on::after{width:100%}
-.nl.on{font-weight:500}
+  /* Card hover - lighter on mobile */
+  .card-h { transition: transform .25s ease, border-color .15s; }
+  @media (hover: hover) {
+    .card-h:hover { transform: translateY(-4px); }
+  }
 
-/* shimmer button */
-.shimmer{position:relative;overflow:hidden}
-.shimmer::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:rgba(255,255,255,.18);transform:skewX(-20deg);transition:left .4s cubic-bezier(.4,0,.2,1)}
-.shimmer:hover::after{left:160%}
+  .stag { transition: border-color .15s; }
+  [x-cloak] { display: none !important; }
 
-/* photo frames */
-.pf{overflow:hidden;background:#d4d4d8}
-.pf img{width:100%;height:100%;object-fit:cover;display:block}
-
-/* card hover */
-.card-h{transition:transform .28s cubic-bezier(.4,0,.2,1),border-color .18s}
-.card-h:hover{transform:translateY(-4px)}
-
-* skill tag *//
-.stag{transition:border-color .18s}
-
-[x-cloak]{display:none!important}
-
-
-
-
-/* Case study prose */
-    .prose-cs h2{font-family:'PT Sans',sans-serif;font-size:1.55rem;font-weight:700;margin:2.75rem 0 1rem;line-height:1.25;}
-    .prose-cs h3{font-family:'PT Sans',sans-serif;font-size:1.15rem;font-weight:700;margin:2rem 0 .6rem;line-height:1.3;color:#FF6B2B;}
-    .prose-cs p{margin:0 0 1.4rem;line-height:1.82;color:#52525b;}
-    .dark .prose-cs p{color:#a1a1aa;}
-    .prose-cs ul{margin:0 0 1.4rem 1.5rem;list-style:disc;}
-    .prose-cs li{margin-bottom:.45rem;line-height:1.7;color:#52525b;}
-    .dark .prose-cs li{color:#a1a1aa;}
-    .prose-cs blockquote{border-left:3px solid #22C55E;padding:.75rem 1.25rem;margin:0 0 1.8rem;background:#fff7f4;border-radius:0 8px 8px 0;}
-    .dark .prose-cs blockquote{background:#27272a;}
-    .prose-cs blockquote p{color:#52525b;font-style:italic;margin:0;}
-    .dark .prose-cs blockquote p{color:#a1a1aa;}
-    .prose-cs hr{border:none;border-top:1px solid #e4e4e7;margin:2.5rem 0;}
-    .dark .prose-cs hr{border-top-color:#27272a;}
-    .prose-cs a{color:#FF6B2B;text-decoration:underline;text-underline-offset:3px;}
-
-
-
-
-
+  /* Reduce heavy blurs on mobile */
+  @media (max-width: 768px) {
+    .blur-3xl { --tw-blur: blur(40px) !important; }
+    body::before { opacity: .12; }
+  }
 </style>
-
-
 
 
 
@@ -209,16 +223,13 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
 <main>
 
 
-
-  
 <section class="pb-16 md:pb-24">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
     <div class="relative overflow-hidden rounded-3xl bg-zinc-900 dark:bg-zinc-800 px-6 py-12 sm:px-10 sm:py-14 md:px-14 md:py-16 text-center">
       
-      <!-- Decorative glows -->
-      <div class="absolute -top-20 -right-20 w-72 h-72 bg-accent/25 rounded-full blur-3xl pointer-events-none"></div>
-      <div class="absolute -bottom-16 -left-16 w-56 h-56 bg-accent/15 rounded-full blur-3xl pointer-events-none"></div>
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none"></div>
+      <!-- Lighter decorative glow (only on desktop) -->
+      <div class="hidden md:block absolute -top-20 -right-20 w-64 h-64 bg-accent/20 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="hidden md:block absolute -bottom-16 -left-16 w-48 h-48 bg-accent/10 rounded-full blur-3xl pointer-events-none"></div>
 
       <div class="relative z-10 max-w-2xl mx-auto">
         <p class="text-xs sm:text-sm font-semibold text-accent tracking-[0.2em] uppercase mb-5">
@@ -234,8 +245,8 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
           Stop worrying about tech. Start growing your impact by showcasing your business online 24/7.
         </p>
 
-        <a href="index.html#contact" 
-           class="inline-flex items-center gap-2.5 bg-accent hover:bg-accent-light text-black font-semibold px-8 py-3.5 sm:px-10 sm:py-4 rounded-full transition-all duration-300 shadow-lg shadow-accent/25 hover:shadow-accent/40 hover:-translate-y-0.5">
+        <a href="#contact" 
+           class="inline-flex items-center gap-2.5 bg-accent hover:bg-accent-light text-black font-semibold px-8 py-3.5 sm:px-10 sm:py-4 rounded-full transition-all duration-300">
           Talk To Us
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
@@ -245,10 +256,6 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
     </div>
   </div>
 </section>
-
-
-
-
 
 
 
@@ -1012,25 +1019,15 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
 
 
 
-
-
-<!-- ========== LOCATION / MAP SECTION ========== -->
 <section class="py-16 md:py-24">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
-
-    <!-- Heading -->
     <div class="text-center mb-10 md:mb-14">
-      <p class="text-sm font-semibold text-accent tracking-widest uppercase mb-3"></p>
       <h2 class="font-display font-bold text-3xl md:text-4xl text-zinc-900 dark:text-white mb-4">
         Our Location
       </h2>
-       
     </div>
 
-    <!-- Map Container -->
-    <div class="relative rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-lg shadow-zinc-200/50 dark:shadow-none">
-      
-      <!-- Responsive Map -->
+    <div class="relative rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-lg">
       <div class="aspect-[16/9] md:aspect-[21/9] w-full">
         <iframe 
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3971.0681703631863!2d-0.33949228973197293!3d5.556913933617838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdfbd8566ef3a31%3A0xad32906a12421b52!2sApprove%20Research!5e0!3m2!1sen!2sgh!4v1786018511023!5m2!1sen!2sgh"
@@ -1041,7 +1038,6 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
         </iframe>
       </div>
 
-      <!-- Optional address card (bottom left) -->
       <div class="absolute bottom-4 left-4 right-4 md:right-auto md:max-w-xs bg-white dark:bg-zinc-900 rounded-xl p-4 shadow-lg border border-zinc-100 dark:border-zinc-800">
         <div class="flex items-start gap-3">
           <div class="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
@@ -1059,12 +1055,9 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
-
-
 
 
 
